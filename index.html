@@ -33,8 +33,6 @@
   .btn-primary:hover { background: #3cd4a8; }
   .btn-download { background: #2a2d3a; color: #4aeabc; border: 1px solid #4aeabc; }
   .btn-download:hover { background: #4aeabc22; }
-  .btn-secondary { background: #2a2d3a; color: #ccc; border: 1px solid #3a3d4a; }
-  .btn-secondary:hover { background: #33364a; }
   .actions { display: flex; gap: 10px; margin-top: 16px; }
   .actions .btn { flex: 1; }
   input[type="range"] { width: 100%; accent-color: #4aeabc; }
@@ -475,48 +473,68 @@ function downloadIPO() {
   a.download=safeName+'-ipo-ad.png'; a.href=URL.createObjectURL(ipoGeneratedBlob); a.click();
 }
 
-/* ── BACKGROUND PICKER ── */
+/* ── BACKGROUND PICKER (FileReader data URLs, stored in memory) ── */
 let bgLibrary = [];
 let bgActiveId = null;
-function bgApply(objectUrl) {
+
+function bgApply(dataUrl) {
   const card = document.getElementById('card');
-  card.style.backgroundImage = objectUrl ? "url('"+objectUrl+"')" : "url('bg.jpg')";
+  card.style.backgroundImage = dataUrl ? 'url("' + dataUrl + '")' : "url('bg.jpg')";
   card.style.backgroundSize = '100% 100%';
   card.style.backgroundPosition = 'center';
   card.style.backgroundRepeat = 'no-repeat';
 }
+
 function bgRenderGrid() {
   const grid = document.getElementById('bgGrid');
   const empty = document.getElementById('bgEmpty');
   Array.from(grid.querySelectorAll('.bg-thumb-wrap')).forEach(el => el.remove());
-  if (bgLibrary.length === 0) { empty.style.display=''; bgApply(null); return; }
+  if (bgLibrary.length === 0) { empty.style.display = ''; bgApply(null); return; }
   empty.style.display = 'none';
   bgLibrary.forEach(bg => {
-    const wrap = document.createElement('div'); wrap.className='bg-thumb-wrap';
+    const wrap = document.createElement('div');
+    wrap.className = 'bg-thumb-wrap';
     const img = document.createElement('img');
-    img.className = 'bg-thumb'+(bg.id===bgActiveId?' selected':'');
-    img.src=bg.objectUrl; img.title=bg.name;
-    img.onclick = () => { bgActiveId=bg.id; bgApply(bg.objectUrl); bgRenderGrid(); };
+    img.className = 'bg-thumb' + (bg.id === bgActiveId ? ' selected' : '');
+    img.src = bg.dataUrl;
+    img.title = bg.name;
+    img.onclick = () => { bgActiveId = bg.id; bgApply(bg.dataUrl); bgRenderGrid(); };
     const del = document.createElement('button');
-    del.className='bg-thumb-del'; del.title='Remove'; del.textContent='×';
+    del.className = 'bg-thumb-del';
+    del.title = 'Remove';
+    del.textContent = '×';
     del.onclick = (e) => {
-      e.stopPropagation(); URL.revokeObjectURL(bg.objectUrl);
-      bgLibrary=bgLibrary.filter(b=>b.id!==bg.id);
-      if (bgActiveId===bg.id) { const next=bgLibrary[0]||null; bgActiveId=next?next.id:null; bgApply(next?next.objectUrl:null); }
+      e.stopPropagation();
+      bgLibrary = bgLibrary.filter(b => b.id !== bg.id);
+      if (bgActiveId === bg.id) {
+        const next = bgLibrary[0] || null;
+        bgActiveId = next ? next.id : null;
+        bgApply(next ? next.dataUrl : null);
+      }
       bgRenderGrid();
     };
-    wrap.appendChild(img); wrap.appendChild(del); grid.appendChild(wrap);
+    wrap.appendChild(img);
+    wrap.appendChild(del);
+    grid.appendChild(wrap);
   });
-  const activeBg = bgLibrary.find(b=>b.id===bgActiveId)||bgLibrary[0];
-  if (activeBg) { bgActiveId=activeBg.id; bgApply(activeBg.objectUrl); }
+  const activeBg = bgLibrary.find(b => b.id === bgActiveId) || bgLibrary[0];
+  if (activeBg) { bgActiveId = activeBg.id; bgApply(activeBg.dataUrl); }
 }
+
 function bgHandleUpload(files) {
+  let loaded = 0;
+  const total = files.length;
   Array.from(files).forEach(file => {
-    const id='bg_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
-    const objectUrl=URL.createObjectURL(file);
-    bgLibrary.push({id,name:file.name,objectUrl}); bgActiveId=id;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const id = 'bg_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
+      bgLibrary.push({ id, name: file.name, dataUrl: e.target.result });
+      bgActiveId = id;
+      loaded++;
+      if (loaded === total) bgRenderGrid();
+    };
+    reader.readAsDataURL(file);
   });
-  bgRenderGrid();
 }
 
 /* ── INIT ── */

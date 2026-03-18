@@ -9,32 +9,25 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; }
   .app { display: flex; height: 100vh; }
-
-  /* ════════ TABS ════════ */
   .panel { width: 420px; min-width: 380px; background: #161922; border-right: 1px solid #2a2d3a; display: flex; flex-direction: column; }
   .tab-bar { display: flex; border-bottom: 1px solid #2a2d3a; background: #12141c; }
   .tab-btn { flex: 1; padding: 13px 10px; text-align: center; font-size: 12px; font-weight: 600; color: #666; cursor: pointer; border: none; background: none; border-bottom: 2px solid transparent; transition: all .15s; text-transform: uppercase; letter-spacing: 0.8px; }
   .tab-btn:hover { color: #aaa; background: #1a1d28; }
   .tab-btn.active { color: #4aeabc; border-bottom-color: #4aeabc; background: #161922; }
-
   .tab-content { display: none; flex-direction: column; flex: 1; overflow: hidden; }
   .tab-content.active { display: flex; }
-
   .panel-header { padding: 14px 22px 8px; border-bottom: 1px solid #2a2d3a; }
   .panel-header h1 { font-size: 16px; color: #4aeabc; font-weight: 700; }
   .panel-header p { font-size: 11px; color: #888; margin-top: 2px; }
   .panel-body { padding: 14px 22px; flex: 1; overflow-y: auto; }
-
   label { display: block; font-size: 11px; font-weight: 600; color: #aaa; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
   textarea { width: 100%; background: #1e2130; border: 1px solid #2e3148; border-radius: 8px; color: #e0e0e0; font-family: 'Consolas', monospace; font-size: 12px; padding: 10px; resize: vertical; outline: none; }
   textarea:focus { border-color: #4aeabc; }
-
   .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
   .control-group { display: flex; flex-direction: column; }
   .control-group.full { grid-column: 1 / -1; }
   input[type="text"], select { width: 100%; background: #1e2130; border: 1px solid #2e3148; border-radius: 6px; color: #e0e0e0; font-size: 12px; padding: 7px 9px; outline: none; }
   input:focus, select:focus { border-color: #4aeabc; }
-
   .btn { padding: 9px 18px; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all .15s; }
   .btn-primary { background: #4aeabc; color: #0f1117; }
   .btn-primary:hover { background: #3cd4a8; }
@@ -44,109 +37,56 @@
   .btn-secondary:hover { background: #33364a; }
   .actions { display: flex; gap: 10px; margin-top: 16px; }
   .actions .btn { flex: 1; }
-
   input[type="range"] { width: 100%; accent-color: #4aeabc; }
   .range-val { font-size: 10px; color: #4aeabc; text-align: right; margin-top: 1px; }
-
   .preview-area { flex: 1; display: flex; align-items: center; justify-content: center; overflow: auto; padding: 24px; background: #0b0d12; }
-
-  /* ════════ FILE UPLOAD ════════ */
   .file-upload { position: relative; }
   .file-upload input[type="file"] { display: none; }
   .file-upload-btn { display: flex; align-items: center; gap: 8px; padding: 8px 12px; background: #1e2130; border: 1px dashed #3e4158; border-radius: 8px; color: #888; font-size: 11px; cursor: pointer; transition: all .15s; }
   .file-upload-btn:hover { border-color: #4aeabc; color: #4aeabc; }
-  .file-upload-btn.has-file { border-color: #4aeabc55; color: #4aeabc; border-style: solid; }
   .file-upload-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
-  .file-name { font-size: 10px; color: #4aeabc; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-  /* ════════ PROFIT REPORT CARD ════════ */
-  .card {
-    background: url('bg.jpg') center / 100% 100% no-repeat;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-  }
+  .card { background: #1a1d2e center / 100% 100% no-repeat; font-family: 'Inter', 'Segoe UI', sans-serif; color: #fff; position: relative; overflow: hidden; }
   .card-inner { position: relative; z-index: 1; }
-
   .card-sebi { text-align: right; font-weight: 700; color: #d4c97a; }
   .card-title { text-align: center; line-height: 1.08; white-space: nowrap; }
   .card-title .t-green { font-family: 'Inter', sans-serif; font-weight: 800; color: #4aeabc; }
   .card-title .t-white { font-family: 'Inter', sans-serif; font-weight: 700; color: #ffffffdd; }
-
   .card-section { text-align: center; font-weight: 700; letter-spacing: 2.5px; color: rgba(255,255,255,.85); text-transform: uppercase; }
-
   .card-table { width: 100%; border-collapse: collapse; table-layout: fixed; border-left: 1px solid rgba(255,255,255,.4); border-right: 1px solid rgba(255,255,255,.4); }
   .card-table col.c-name { width: 35%; }
   .card-table col.c-ret  { width: 35%; }
   .card-table col.c-dur  { width: 30%; }
-
-  .card-table thead th {
-    font-weight: 700; letter-spacing: 1.2px; color: #d4c97a;
-    text-transform: uppercase; text-align: center;
-    border-top: 1px solid rgba(255,255,255,.4);
-    border-bottom: 1px solid rgba(255,255,255,.4);
-    border-right: 1px solid rgba(255,255,255,.2);
-  }
+  .card-table thead th { font-weight: 700; letter-spacing: 1.2px; color: #d4c97a; text-transform: uppercase; text-align: center; border-top: 1px solid rgba(255,255,255,.4); border-bottom: 1px solid rgba(255,255,255,.4); border-right: 1px solid rgba(255,255,255,.2); }
   .card-table thead th:last-child { border-right: none; }
-  .card-table tbody td {
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,.22);
-    border-right: 1px solid rgba(255,255,255,.2);
-    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  }
+  .card-table tbody td { text-align: center; border-bottom: 1px solid rgba(255,255,255,.22); border-right: 1px solid rgba(255,255,255,.2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .card-table tbody td:last-child { border-right: none; }
   .card-table tbody tr:last-child td { border-bottom: 1px solid rgba(255,255,255,.4); }
-
-  .td-name     { color: rgba(255,255,255,.8); }
-  .td-returns  { color: #4aeabc; font-weight: 700; }
+  .td-name { color: rgba(255,255,255,.8); }
+  .td-returns { color: #4aeabc; font-weight: 700; }
   .td-duration { color: rgba(255,255,255,.8); }
-
   .card-disclaimer { color: rgba(200,200,200,.6); line-height: 1.5; text-align: center; }
-
-  /* ════════ IPO AD PREVIEW ════════ */
-  .ipo-canvas-wrap { position: relative; }
-  .ipo-canvas-wrap canvas { display: block; max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,.5); }
-
   /* ════════ BACKGROUND PICKER ════════ */
   .bg-picker { margin-top: 14px; }
   .bg-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-  .bg-thumb {
-    width: 72px; height: 48px; border-radius: 6px; object-fit: cover; cursor: pointer;
-    border: 2px solid transparent; transition: border-color .15s, transform .1s;
-    flex-shrink: 0;
-  }
+  .bg-thumb { width: 72px; height: 48px; border-radius: 6px; object-fit: cover; cursor: pointer; border: 2px solid transparent; transition: border-color .15s, transform .1s; flex-shrink: 0; }
   .bg-thumb:hover { transform: scale(1.05); }
   .bg-thumb.selected { border-color: #4aeabc; }
   .bg-thumb-wrap { position: relative; display: inline-block; }
-  .bg-thumb-del {
-    position: absolute; top: -5px; right: -5px; width: 16px; height: 16px;
-    background: #ff6b6b; border-radius: 50%; border: none; color: #fff;
-    font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-    line-height: 1; padding: 0;
-  }
+  .bg-thumb-del { position: absolute; top: -5px; right: -5px; width: 16px; height: 16px; background: #ff6b6b; border-radius: 50%; border: none; color: #fff; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; padding: 0; }
   .bg-thumb-del:hover { background: #e05555; }
   .bg-empty { font-size: 11px; color: #555; font-style: italic; }
-
-  /* ════════ STATUS MSG ════════ */
   .status-msg { font-size: 11px; color: #888; margin-top: 8px; text-align: center; min-height: 16px; }
   .status-msg.error { color: #ff6b6b; }
   .status-msg.success { color: #4aeabc; }
-
-  /* ════════ PROGRESS STEPS ════════ */
   .ipo-step { font-size: 12px; color: #555; padding: 5px 0; display: flex; align-items: center; gap: 8px; }
   .ipo-step .step-icon { font-size: 14px; width: 18px; text-align: center; }
   .ipo-step.active { color: #4aeabc; }
   .ipo-step.active .step-icon { animation: pulse 1s infinite; }
   .ipo-step.done { color: #3cd4a8; }
-  .ipo-step.done .step-icon { color: #4aeabc; }
   .ipo-step.error { color: #ff6b6b; }
   @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-  /* ════════ IPO PREVIEW IMAGE ════════ */
   #ipoPreviewImg { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 24px rgba(0,0,0,.5); }
   .ipo-placeholder { color: #333; font-size: 14px; text-align: center; padding: 40px; border: 1px dashed #2a2d3a; border-radius: 8px; }
-
   @media (max-width: 900px) {
     .app { flex-direction: column; height: auto; }
     .panel { width: 100%; min-width: 0; border-right: none; border-bottom: 1px solid #2a2d3a; }
@@ -155,16 +95,13 @@
 </style>
 </head>
 <body>
-
 <div class="app">
   <div class="panel">
-    <!-- Tab Bar -->
     <div class="tab-bar">
       <button class="tab-btn active" onclick="switchTab('profit')">Profit Report</button>
       <button class="tab-btn" onclick="switchTab('ipo')">IPO Ad Creator</button>
     </div>
 
-    <!-- ═══════════ TAB 1: PROFIT REPORT ═══════════ -->
     <div class="tab-content active" id="tab-profit">
       <div class="panel-header">
         <h1>Profit Report Generator</h1>
@@ -231,7 +168,7 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
           </div>
         </div>
 
-        <!-- ── BACKGROUND PICKER ── -->
+        <!-- BACKGROUND PICKER -->
         <div class="bg-picker">
           <label>Card Background</label>
           <div class="file-upload" style="margin-bottom:8px;">
@@ -246,7 +183,7 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
           </div>
         </div>
 
-        <div class="control-group full">
+        <div class="control-group full" style="margin-top:14px;">
           <label>File Name</label>
           <input type="text" id="fileName" placeholder="profit-report" style="width:100%;padding:6px 10px;background:#1a1d2e;color:#e2e8f0;border:1px solid #2a2d3a;border-radius:6px;font-size:13px;">
         </div>
@@ -257,48 +194,35 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
       </div>
     </div>
 
-    <!-- ═══════════ TAB 2: IPO AD CREATOR ═══════════ -->
     <div class="tab-content" id="tab-ipo">
       <div class="panel-header">
         <h1>IPO Ad Creator</h1>
         <p>1200 x 628 — fully automated ad generation</p>
       </div>
       <div class="panel-body">
-
         <div class="controls" style="margin-top:0;">
-          <!-- API Key -->
           <div class="control-group full">
             <label>Anthropic API Key</label>
             <input type="password" id="ipoApiKey" placeholder="sk-ant-api03-..." style="width:100%;background:#1e2130;border:1px solid #2e3148;border-radius:6px;color:#e0e0e0;font-size:12px;padding:7px 9px;outline:none;">
             <div style="font-size:10px;color:#555;margin-top:3px;">Get yours at console.anthropic.com/settings/keys — saved in browser</div>
           </div>
-
-          <!-- Company Name -->
           <div class="control-group full">
             <label>Company Name</label>
             <input type="text" id="ipoCompanyName" value="Central Mine Planning & Design Institute" placeholder="e.g. Tata Motors">
           </div>
-
-          <!-- Company Description -->
           <div class="control-group full">
             <label>Company Description</label>
-            <textarea id="ipoCompanyDesc" rows="2" style="font-family:'Segoe UI',sans-serif;font-size:11px;" placeholder="What does this company do? Used to find relevant background.">India's largest coal mining consultancy providing mine planning and design services.</textarea>
+            <textarea id="ipoCompanyDesc" rows="2" style="font-family:'Segoe UI',sans-serif;font-size:11px;" placeholder="What does this company do?">India's largest coal mining consultancy providing mine planning and design services.</textarea>
           </div>
-
-          <!-- Title suffix -->
           <div class="control-group full">
             <label>Title Suffix</label>
             <input type="text" id="ipoTitleSuffix" value="IPO" placeholder="e.g. IPO, OFS, FPO">
           </div>
-
-          <!-- Overlay darkness -->
           <div class="control-group full">
             <label>Background Overlay Darkness</label>
             <input type="range" id="ipoOverlay" min="0" max="80" value="30">
             <div class="range-val" id="ipoOverlayVal">30%</div>
           </div>
-
-          <!-- Person options -->
           <div class="control-group full">
             <label style="display:flex;align-items:center;gap:8px;">
               <input type="checkbox" id="ipoForceNewPerson" style="width:auto;accent-color:#4aeabc;">
@@ -307,35 +231,22 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
             <div id="ipoPersonCount" style="font-size:10px;color:#555;margin-top:3px;">Checking...</div>
           </div>
         </div>
-
         <div class="actions">
           <button class="btn btn-primary" id="ipoGenerateBtn" onclick="generateIPOAuto()">Generate Ad</button>
           <button class="btn btn-download" id="ipoDownloadBtn" onclick="downloadIPO()" disabled>Download PNG</button>
         </div>
-
-        <!-- Progress Steps -->
         <div id="ipoProgress" style="margin-top:14px;display:none;">
-          <div class="ipo-step" id="step-logo">
-            <span class="step-icon">&#9711;</span> Fetching company logo...
-          </div>
-          <div class="ipo-step" id="step-bg">
-            <span class="step-icon">&#9711;</span> Finding relevant background...
-          </div>
-          <div class="ipo-step" id="step-person">
-            <span class="step-icon">&#9711;</span> Preparing person image...
-          </div>
-          <div class="ipo-step" id="step-compose">
-            <span class="step-icon">&#9711;</span> Compositing final ad...
-          </div>
+          <div class="ipo-step" id="step-logo"><span class="step-icon">&#9711;</span> Fetching company logo...</div>
+          <div class="ipo-step" id="step-bg"><span class="step-icon">&#9711;</span> Finding relevant background...</div>
+          <div class="ipo-step" id="step-person"><span class="step-icon">&#9711;</span> Preparing person image...</div>
+          <div class="ipo-step" id="step-compose"><span class="step-icon">&#9711;</span> Compositing final ad...</div>
         </div>
         <div class="status-msg" id="ipoStatus"></div>
       </div>
     </div>
   </div>
 
-  <!-- ═══════════ PREVIEW AREA ═══════════ -->
   <div class="preview-area">
-    <!-- Profit Report Preview -->
     <div id="preview-profit">
       <div class="card" id="card">
         <div class="card-inner" id="cardInner">
@@ -346,12 +257,8 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
         </div>
       </div>
     </div>
-
-    <!-- IPO Ad Preview -->
     <div id="preview-ipo" style="display:none;">
-      <div class="ipo-placeholder" id="ipoPlaceholder">
-        Enter company details and click <strong>Generate Ad</strong>
-      </div>
+      <div class="ipo-placeholder" id="ipoPlaceholder">Enter company details and click <strong>Generate Ad</strong></div>
       <img id="ipoPreviewImg" style="display:none;" alt="Generated IPO Ad">
     </div>
   </div>
@@ -359,10 +266,6 @@ NIFTY 50: 2.93% in 57 Mins</textarea>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
-
-/* ═══════════════════════════════════════════
-   TAB SWITCHING
-   ═══════════════════════════════════════════ */
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach((btn, i) => {
     btn.classList.toggle('active', (tab === 'profit' && i === 0) || (tab === 'ipo' && i === 1));
@@ -371,13 +274,9 @@ function switchTab(tab) {
   document.getElementById('tab-ipo').classList.toggle('active', tab === 'ipo');
   document.getElementById('preview-profit').style.display = tab === 'profit' ? '' : 'none';
   document.getElementById('preview-ipo').style.display = tab === 'ipo' ? '' : 'none';
-
   if (tab === 'ipo') checkPersonCache();
 }
 
-/* ═══════════════════════════════════════════
-   TAB 1: PROFIT REPORT (unchanged logic)
-   ═══════════════════════════════════════════ */
 function parseInput(text) {
   const sections = [];
   let cur = null;
@@ -396,7 +295,6 @@ function parseInput(text) {
     const m = line.match(/^(.+?):\s*(.+?)\s+(?:in\s+|on\s+)(.+)$/i);
     if (m) {
       let ret = m[2].trim();
-      const bare = ret.replace(/[₹%,]/g, '').trim();
       if (/futures|commodity/i.test(cur.name)) {
         if (!ret.startsWith('₹')) ret = '₹' + ret;
       } else {
@@ -416,71 +314,43 @@ const COL_HEADERS = {
 };
 
 function generate() {
-  const text     = document.getElementById('inputText').value;
+  const text = document.getElementById('inputText').value;
   const sections = parseInput(text);
-  const W        = parseInt(document.getElementById('cardWidth').value);
-  const userScale= parseInt(document.getElementById('overallScale').value) / 100;
+  const W = parseInt(document.getElementById('cardWidth').value);
+  const userScale = parseInt(document.getElementById('overallScale').value) / 100;
   const tblSpace = parseInt(document.getElementById('tableSpacing').value) / 100;
-  const fontFam  = document.getElementById('fontFamily').value;
-  const sebi     = document.getElementById('sebiReg').value;
-  const disc     = document.getElementById('disclaimer').value;
-
+  const fontFam = document.getElementById('fontFamily').value;
+  const sebi = document.getElementById('sebiReg').value;
+  const disc = document.getElementById('disclaimer').value;
   const totalRows = sections.reduce((s, sec) => s + sec.rows.length, 0);
-  const S         = sections.length;
-
-  const BASE = {
-    padTB: 0.040, padLR: 0.050, sebiFz: 0.019, sebiMb: 0.010,
-    titleFz: 0.080, titleMb: 0.030, secFz: 0.021, secMt: 0.025,
-    secMb: 0.010, thFz: 0.019, thPad: 0.014, tdFz: 0.022,
-    tdPad: 0.012, discFz: 0.013, discMt: 0.028,
-  };
-
-  const px = (frac) => frac * W;
-  const naturalH =
-    px(BASE.padTB) * 2 +
-    px(BASE.sebiFz) + px(BASE.sebiMb) +
-    px(BASE.titleFz) * 1.1 + px(BASE.titleMb) +
-    S * (px(BASE.secFz) + px(BASE.secMt) + px(BASE.secMb) +
-         px(BASE.thFz) + px(BASE.thPad) * 2) +
-    totalRows * (px(BASE.tdFz) + px(BASE.tdPad) * 2) +
-    px(BASE.discFz) * 3 + px(BASE.discMt);
-
+  const S = sections.length;
+  const BASE = { padTB:0.040,padLR:0.050,sebiFz:0.019,sebiMb:0.010,titleFz:0.080,titleMb:0.030,secFz:0.021,secMt:0.025,secMb:0.010,thFz:0.019,thPad:0.014,tdFz:0.022,tdPad:0.012,discFz:0.013,discMt:0.028 };
+  const px = f => f * W;
+  const naturalH = px(BASE.padTB)*2+px(BASE.sebiFz)+px(BASE.sebiMb)+px(BASE.titleFz)*1.1+px(BASE.titleMb)+S*(px(BASE.secFz)+px(BASE.secMt)+px(BASE.secMb)+px(BASE.thFz)+px(BASE.thPad)*2)+totalRows*(px(BASE.tdFz)+px(BASE.tdPad)*2)+px(BASE.discFz)*3+px(BASE.discMt);
   const maxH = W * 1.25;
-  const autoScale = naturalH > maxH ? maxH / naturalH : 1;
-  const scale = autoScale * userScale;
-
+  const scale = (naturalH > maxH ? maxH / naturalH : 1) * userScale;
   const sz = {};
   for (const k in BASE) sz[k] = Math.max(1, Math.round(px(BASE[k]) * scale));
-
   const card = document.getElementById('card');
   card.style.width = W + 'px';
   card.style.fontFamily = fontFam;
-
   const inner = document.getElementById('cardInner');
   inner.style.padding = sz.padTB + 'px ' + sz.padLR + 'px';
-
   const sebiEl = document.getElementById('sebiLine');
   sebiEl.textContent = 'SEBI Reg. : ' + sebi;
   sebiEl.style.fontSize = sz.sebiFz + 'px';
   sebiEl.style.marginBottom = sz.sebiMb + 'px';
-
   const titleBlock = document.getElementById('titleBlock');
   titleBlock.style.marginBottom = sz.titleMb + 'px';
-  titleBlock.innerHTML =
-    '<span class="t-green" style="font-size:' + sz.titleFz + 'px">' + totalRows + ' Profits </span>' +
-    '<span class="t-white" style="font-size:' + sz.titleFz + 'px">Booked Today</span>';
-
+  titleBlock.innerHTML = '<span class="t-green" style="font-size:'+sz.titleFz+'px">'+totalRows+' Profits </span><span class="t-white" style="font-size:'+sz.titleFz+'px">Booked Today</span>';
   const discEl = document.getElementById('disclaimerDisplay');
   discEl.textContent = disc;
   discEl.style.fontSize = sz.discFz + 'px';
   discEl.style.marginTop = sz.discMt + 'px';
-
   const container = document.getElementById('tablesContainer');
   container.innerHTML = '';
-
-  const ORDER = { 'EQUITY': 0, 'OPTIONS': 1, 'FUTURES': 2, 'COMMODITY': 3 };
-  sections.sort((a, b) => (ORDER[a.name] ?? 99) - (ORDER[b.name] ?? 99));
-
+  const ORDER = { 'EQUITY':0,'OPTIONS':1,'FUTURES':2,'COMMODITY':3 };
+  sections.sort((a,b) => (ORDER[a.name]??99)-(ORDER[b.name]??99));
   for (const sec of sections) {
     const label = document.createElement('div');
     label.className = 'card-section';
@@ -489,54 +359,35 @@ function generate() {
     label.style.marginBottom = sz.secMb + 'px';
     label.textContent = sec.name;
     container.appendChild(label);
-
     const headers = COL_HEADERS[sec.name] || COL_HEADERS['EQUITY'];
     const table = document.createElement('table');
     table.className = 'card-table';
-
     const colgroup = document.createElement('colgroup');
-    ['c-name','c-ret','c-dur'].forEach(cls => {
-      const col = document.createElement('col');
-      col.className = cls;
-      colgroup.appendChild(col);
-    });
+    ['c-name','c-ret','c-dur'].forEach(cls => { const col = document.createElement('col'); col.className = cls; colgroup.appendChild(col); });
     table.appendChild(colgroup);
-
     const thead = document.createElement('thead');
     const htr = document.createElement('tr');
-    headers.forEach(h => {
-      const th = document.createElement('th');
-      th.textContent = h;
-      th.style.fontSize = sz.thFz + 'px';
-      th.style.padding = sz.thPad + 'px ' + Math.round(sz.padLR * 0.4) + 'px';
-      htr.appendChild(th);
-    });
+    headers.forEach(h => { const th = document.createElement('th'); th.textContent = h; th.style.fontSize = sz.thFz+'px'; th.style.padding = sz.thPad+'px '+Math.round(sz.padLR*0.4)+'px'; htr.appendChild(th); });
     thead.appendChild(htr);
     table.appendChild(thead);
-
     const tbody = document.createElement('tbody');
     for (const row of sec.rows) {
       const tr = document.createElement('tr');
-      const tdN = document.createElement('td'); tdN.className = 'td-name';     tdN.textContent = row.name;
-      const tdR = document.createElement('td'); tdR.className = 'td-returns';  tdR.textContent = row.returns;
-      const tdD = document.createElement('td'); tdD.className = 'td-duration'; tdD.textContent = row.duration;
-      [tdN, tdR, tdD].forEach(td => {
-        td.style.fontSize = sz.tdFz + 'px';
-        td.style.padding = sz.tdPad + 'px ' + Math.round(sz.padLR * 0.4) + 'px';
-      });
-      tr.append(tdN, tdR, tdD);
+      const tdN = document.createElement('td'); tdN.className='td-name'; tdN.textContent=row.name;
+      const tdR = document.createElement('td'); tdR.className='td-returns'; tdR.textContent=row.returns;
+      const tdD = document.createElement('td'); tdD.className='td-duration'; tdD.textContent=row.duration;
+      [tdN,tdR,tdD].forEach(td => { td.style.fontSize=sz.tdFz+'px'; td.style.padding=sz.tdPad+'px '+Math.round(sz.padLR*0.4)+'px'; });
+      tr.append(tdN,tdR,tdD);
       tbody.appendChild(tr);
     }
     table.appendChild(tbody);
-    table.style.marginBottom = Math.round(sz.secMt * (tblSpace - 1)) + 'px';
+    table.style.marginBottom = Math.round(sz.secMt*(tblSpace-1))+'px';
     container.appendChild(table);
   }
 }
 
 function download() {
-  html2canvas(document.getElementById('card'), {
-    scale: 2, backgroundColor: null, useCORS: true
-  }).then(canvas => {
+  html2canvas(document.getElementById('card'), { scale:2, backgroundColor:null, useCORS:true }).then(canvas => {
     const a = document.createElement('a');
     const customName = document.getElementById('fileName').value.trim() || 'profit-report';
     a.download = customName + '.jpg';
@@ -545,291 +396,145 @@ function download() {
   });
 }
 
-/* ═══════════════════════════════════════════
-   TAB 2: IPO AD CREATOR — Backend Automated
-   ═══════════════════════════════════════════ */
-
-let ipoGeneratedBlob = null; // Stores the last generated image
-
+/* ── IPO ── */
+let ipoGeneratedBlob = null;
 function checkPersonCache() {
-  fetch('/api/persons')
-    .then(r => r.json())
-    .then(data => {
-      document.getElementById('ipoPersonCount').textContent =
-        data.count + ' person image(s) cached. ' + (data.count === 0 ? 'First run will generate one via Claude.' : 'Will reuse unless checkbox is ticked.');
-    })
-    .catch(() => {
-      document.getElementById('ipoPersonCount').textContent = 'Server not running. Start with: node server.js';
-    });
+  fetch('/api/persons').then(r=>r.json()).then(data => {
+    document.getElementById('ipoPersonCount').textContent = data.count+' person image(s) cached. '+(data.count===0?'First run will generate one via Claude.':'Will reuse unless checkbox is ticked.');
+  }).catch(() => { document.getElementById('ipoPersonCount').textContent='Server not running. Start with: node server.js'; });
 }
-
 function setStep(stepId, state, text) {
   const el = document.getElementById(stepId);
   if (!el) return;
   el.className = 'ipo-step ' + state;
-  if (text) el.innerHTML = '<span class="step-icon">' +
-    (state === 'done' ? '&#10003;' : state === 'error' ? '&#10007;' : state === 'active' ? '&#9679;' : '&#9711;') +
-    '</span> ' + text;
+  if (text) el.innerHTML = '<span class="step-icon">'+(state==='done'?'&#10003;':state==='error'?'&#10007;':state==='active'?'&#9679;':'&#9711;')+'</span> '+text;
 }
-
 async function generateIPOAuto() {
   const companyName = document.getElementById('ipoCompanyName').value.trim();
   const description = document.getElementById('ipoCompanyDesc').value.trim();
   const suffix = document.getElementById('ipoTitleSuffix').value.trim();
-  const overlayAlpha = parseInt(document.getElementById('ipoOverlay').value) / 100;
+  const overlayAlpha = parseInt(document.getElementById('ipoOverlay').value)/100;
   const apiKey = document.getElementById('ipoApiKey').value.trim();
   const forceNewPerson = document.getElementById('ipoForceNewPerson').checked;
-
-  if (!companyName) {
-    document.getElementById('ipoStatus').textContent = 'Enter a company name';
-    document.getElementById('ipoStatus').className = 'status-msg error';
-    return;
-  }
-  if (!apiKey) {
-    document.getElementById('ipoStatus').textContent = 'Enter your Anthropic API key';
-    document.getElementById('ipoStatus').className = 'status-msg error';
-    return;
-  }
+  if (!companyName) { document.getElementById('ipoStatus').textContent='Enter a company name'; document.getElementById('ipoStatus').className='status-msg error'; return; }
+  if (!apiKey) { document.getElementById('ipoStatus').textContent='Enter your Anthropic API key'; document.getElementById('ipoStatus').className='status-msg error'; return; }
   localStorage.setItem('ipo_api_key', apiKey);
-
-  // Show progress
-  const progress = document.getElementById('ipoProgress');
-  progress.style.display = 'block';
+  document.getElementById('ipoProgress').style.display='block';
   const btn = document.getElementById('ipoGenerateBtn');
-  btn.disabled = true;
-  btn.textContent = 'Generating...';
-
-  setStep('step-logo', 'active', 'Fetching company logo...');
-  setStep('step-bg', '', 'Finding relevant background...');
-  setStep('step-person', '', 'Preparing person image...');
-  setStep('step-compose', '', 'Compositing final ad...');
-
-  document.getElementById('ipoStatus').textContent = '';
-  document.getElementById('ipoStatus').className = 'status-msg';
-
-  // Simulate step progression via SSE-like approach
-  // (Backend does it all at once, but we show steps for UX)
-  setTimeout(() => setStep('step-logo', 'active', 'Fetching company logo...'), 0);
-  setTimeout(() => {
-    setStep('step-logo', 'done', 'Company logo fetched');
-    setStep('step-bg', 'active', 'Finding relevant background...');
-  }, 3000);
-  setTimeout(() => {
-    setStep('step-bg', 'done', 'Background found');
-    setStep('step-person', 'active', 'Preparing person image...');
-  }, 6000);
-  setTimeout(() => {
-    setStep('step-person', 'done', 'Person ready');
-    setStep('step-compose', 'active', 'Compositing final ad...');
-  }, 9000);
-
+  btn.disabled=true; btn.textContent='Generating...';
+  setStep('step-logo','active','Fetching company logo...');
+  setStep('step-bg','','Finding relevant background...');
+  setStep('step-person','','Preparing person image...');
+  setStep('step-compose','','Compositing final ad...');
+  document.getElementById('ipoStatus').textContent='';
+  document.getElementById('ipoStatus').className='status-msg';
+  setTimeout(()=>setStep('step-logo','active','Fetching company logo...'),0);
+  setTimeout(()=>{setStep('step-logo','done','Company logo fetched');setStep('step-bg','active','Finding relevant background...');},3000);
+  setTimeout(()=>{setStep('step-bg','done','Background found');setStep('step-person','active','Preparing person image...');},6000);
+  setTimeout(()=>{setStep('step-person','done','Person ready');setStep('step-compose','active','Compositing final ad...');},9000);
   try {
-    const res = await fetch('/api/generate-ad', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ companyName, description, suffix, overlayAlpha, apiKey, forceNewPerson }),
-    });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ error: 'Server error ' + res.status }));
-      throw new Error(err.error || 'Generation failed');
-    }
-
+    const res = await fetch('/api/generate-ad',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({companyName,description,suffix,overlayAlpha,apiKey,forceNewPerson})});
+    if (!res.ok) { const err=await res.json().catch(()=>({error:'Server error '+res.status})); throw new Error(err.error||'Generation failed'); }
     const blob = await res.blob();
     ipoGeneratedBlob = blob;
-
-    // Show image
     const url = URL.createObjectURL(blob);
     const img = document.getElementById('ipoPreviewImg');
-    img.src = url;
-    img.style.display = 'block';
-    document.getElementById('ipoPlaceholder').style.display = 'none';
-
-    // All steps done
-    setStep('step-logo', 'done', 'Company logo fetched');
-    setStep('step-bg', 'done', 'Background found');
-    setStep('step-person', 'done', 'Person ready');
-    setStep('step-compose', 'done', 'Ad composed!');
-
-    document.getElementById('ipoStatus').textContent = 'Ad generated successfully!';
-    document.getElementById('ipoStatus').className = 'status-msg success';
-    document.getElementById('ipoDownloadBtn').disabled = false;
-
-    // Refresh person cache count
+    img.src=url; img.style.display='block';
+    document.getElementById('ipoPlaceholder').style.display='none';
+    setStep('step-logo','done','Company logo fetched');
+    setStep('step-bg','done','Background found');
+    setStep('step-person','done','Person ready');
+    setStep('step-compose','done','Ad composed!');
+    document.getElementById('ipoStatus').textContent='Ad generated successfully!';
+    document.getElementById('ipoStatus').className='status-msg success';
+    document.getElementById('ipoDownloadBtn').disabled=false;
     checkPersonCache();
-
-  } catch (err) {
-    setStep('step-compose', 'error', 'Error: ' + err.message);
-    document.getElementById('ipoStatus').textContent = err.message;
-    document.getElementById('ipoStatus').className = 'status-msg error';
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Generate Ad';
-  }
+  } catch(err) {
+    setStep('step-compose','error','Error: '+err.message);
+    document.getElementById('ipoStatus').textContent=err.message;
+    document.getElementById('ipoStatus').className='status-msg error';
+  } finally { btn.disabled=false; btn.textContent='Generate Ad'; }
 }
-
 function downloadIPO() {
   if (!ipoGeneratedBlob) return;
   const a = document.createElement('a');
-  const companyName = document.getElementById('ipoCompanyName').value.trim() || 'ipo-ad';
-  const safeName = companyName.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase();
-  a.download = safeName + '-ipo-ad.png';
-  a.href = URL.createObjectURL(ipoGeneratedBlob);
+  const safeName = (document.getElementById('ipoCompanyName').value.trim()||'ipo-ad').replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();
+  a.download=safeName+'-ipo-ad.png';
+  a.href=URL.createObjectURL(ipoGeneratedBlob);
   a.click();
 }
 
-/* ═══════════════════════════════════════════
-   BACKGROUND PICKER
-   ═══════════════════════════════════════════ */
+/* ── BACKGROUND PICKER (in-memory, no localStorage limit) ── */
+let bgLibrary = [];
+let bgActiveId = null;
 
-const BG_STORE_KEY = 'profitBgLibrary';   // array of {id, name, dataUrl}
-const BG_ACTIVE_KEY = 'profitBgActive';   // id of selected bg
-
-function bgLoadLibrary() {
-  try { return JSON.parse(localStorage.getItem(BG_STORE_KEY) || '[]'); }
-  catch { return []; }
-}
-function bgSaveLibrary(lib) { localStorage.setItem(BG_STORE_KEY, JSON.stringify(lib)); }
-function bgGetActive() { return localStorage.getItem(BG_ACTIVE_KEY) || null; }
-function bgSetActive(id) { localStorage.setItem(BG_ACTIVE_KEY, id); }
-
-function bgApply(dataUrl) {
+function bgApply(objectUrl) {
   const card = document.getElementById('card');
-  if (dataUrl) {
-    card.style.backgroundImage = "url('" + dataUrl + "')";
-    card.style.backgroundSize = '100% 100%';
-    card.style.backgroundPosition = 'center';
-    card.style.backgroundRepeat = 'no-repeat';
-  } else {
-    // fall back to the default bg.jpg
-    card.style.backgroundImage = "url('bg.jpg')";
-    card.style.backgroundSize = '100% 100%';
-    card.style.backgroundPosition = 'center';
-    card.style.backgroundRepeat = 'no-repeat';
-  }
+  card.style.backgroundImage = objectUrl ? "url('" + objectUrl + "')" : 'none';
+  card.style.backgroundSize = '100% 100%';
+  card.style.backgroundPosition = 'center';
+  card.style.backgroundRepeat = 'no-repeat';
 }
 
 function bgRenderGrid() {
-  const lib = bgLoadLibrary();
-  const activeId = bgGetActive();
   const grid = document.getElementById('bgGrid');
   const empty = document.getElementById('bgEmpty');
-
-  // clear existing thumbs (keep the empty span)
   Array.from(grid.querySelectorAll('.bg-thumb-wrap')).forEach(el => el.remove());
-
-  if (lib.length === 0) {
-    empty.style.display = '';
-    // restore default
-    bgApply(null);
-    return;
-  }
+  if (bgLibrary.length === 0) { empty.style.display=''; bgApply(null); return; }
   empty.style.display = 'none';
-
-  lib.forEach(bg => {
+  bgLibrary.forEach(bg => {
     const wrap = document.createElement('div');
     wrap.className = 'bg-thumb-wrap';
-
     const img = document.createElement('img');
-    img.className = 'bg-thumb' + (bg.id === activeId ? ' selected' : '');
-    img.src = bg.dataUrl;
+    img.className = 'bg-thumb' + (bg.id === bgActiveId ? ' selected' : '');
+    img.src = bg.objectUrl;
     img.title = bg.name;
-    img.onclick = () => {
-      bgSetActive(bg.id);
-      bgApply(bg.dataUrl);
-      bgRenderGrid();
-    };
-
+    img.onclick = () => { bgActiveId=bg.id; bgApply(bg.objectUrl); bgRenderGrid(); };
     const del = document.createElement('button');
     del.className = 'bg-thumb-del';
     del.title = 'Remove';
     del.textContent = '×';
     del.onclick = (e) => {
       e.stopPropagation();
-      let lib2 = bgLoadLibrary().filter(b => b.id !== bg.id);
-      bgSaveLibrary(lib2);
-      // if we deleted the active one, clear or pick first
-      if (bgGetActive() === bg.id) {
-        const next = lib2[0] || null;
-        if (next) { bgSetActive(next.id); bgApply(next.dataUrl); }
-        else { localStorage.removeItem(BG_ACTIVE_KEY); bgApply(null); }
-      }
+      URL.revokeObjectURL(bg.objectUrl);
+      bgLibrary = bgLibrary.filter(b => b.id !== bg.id);
+      if (bgActiveId === bg.id) { const next=bgLibrary[0]||null; bgActiveId=next?next.id:null; bgApply(next?next.objectUrl:null); }
       bgRenderGrid();
     };
-
     wrap.appendChild(img);
     wrap.appendChild(del);
     grid.appendChild(wrap);
   });
-
-  // apply active bg on render
-  const activeBg = lib.find(b => b.id === activeId) || lib[0];
-  if (activeBg) {
-    if (!activeId) bgSetActive(activeBg.id);
-    bgApply(activeBg.dataUrl);
-  }
+  const activeBg = bgLibrary.find(b=>b.id===bgActiveId)||bgLibrary[0];
+  if (activeBg) { bgActiveId=activeBg.id; bgApply(activeBg.objectUrl); }
 }
 
 function bgHandleUpload(files) {
-  const lib = bgLoadLibrary();
-  let loaded = 0;
   Array.from(files).forEach(file => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const id = 'bg_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-      lib.push({ id, name: file.name, dataUrl: e.target.result });
-      loaded++;
-      if (loaded === files.length) {
-        bgSaveLibrary(lib);
-        // auto-select the first newly uploaded one
-        bgSetActive(lib[lib.length - files.length + (files.length - 1)].id);
-        bgRenderGrid();
-      }
-    };
-    reader.readAsDataURL(file);
+    const id = 'bg_' + Date.now() + '_' + Math.random().toString(36).slice(2,7);
+    const objectUrl = URL.createObjectURL(file);
+    bgLibrary.push({ id, name: file.name, objectUrl });
+    bgActiveId = id;
   });
+  bgRenderGrid();
 }
 
-/* ═══════════════════════════════════════════
-   INIT & EVENT LISTENERS
-   ═══════════════════════════════════════════ */
+/* ── INIT ── */
 window.addEventListener('DOMContentLoaded', function () {
-  // Background picker init
   bgRenderGrid();
   document.getElementById('bgUploadInput').addEventListener('change', function () {
     if (this.files.length) bgHandleUpload(this.files);
-    this.value = ''; // allow re-uploading same file
+    this.value = '';
   });
-
-  // Tab 1 listeners
-  document.getElementById('cardWidth').addEventListener('input', function () {
-    document.getElementById('cardWidthVal').textContent = this.value + 'px';
-    generate();
-  });
-  document.getElementById('overallScale').addEventListener('input', function () {
-    document.getElementById('overallScaleVal').textContent = this.value + '%';
-    generate();
-  });
-  document.getElementById('tableSpacing').addEventListener('input', function () {
-    document.getElementById('tableSpacingVal').textContent = this.value + '%';
-    generate();
-  });
-  ['fontFamily','sebiReg'].forEach(id => {
-    document.getElementById(id).addEventListener('change', generate);
-  });
+  document.getElementById('cardWidth').addEventListener('input', function () { document.getElementById('cardWidthVal').textContent=this.value+'px'; generate(); });
+  document.getElementById('overallScale').addEventListener('input', function () { document.getElementById('overallScaleVal').textContent=this.value+'%'; generate(); });
+  document.getElementById('tableSpacing').addEventListener('input', function () { document.getElementById('tableSpacingVal').textContent=this.value+'%'; generate(); });
+  ['fontFamily','sebiReg'].forEach(id => document.getElementById(id).addEventListener('change', generate));
   document.getElementById('inputText').addEventListener('input', generate);
   document.getElementById('disclaimer').addEventListener('input', generate);
-
-  // Tab 2: Overlay slider live update
-  document.getElementById('ipoOverlay').addEventListener('input', function () {
-    document.getElementById('ipoOverlayVal').textContent = this.value + '%';
-  });
-
-  // Tab 2: Restore saved API key
+  document.getElementById('ipoOverlay').addEventListener('input', function () { document.getElementById('ipoOverlayVal').textContent=this.value+'%'; });
   const savedKey = localStorage.getItem('ipo_api_key');
   if (savedKey) document.getElementById('ipoApiKey').value = savedKey;
-
-  // Init Tab 1
   generate();
 });
 </script>
